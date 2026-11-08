@@ -8,35 +8,38 @@ export default {
   theme: {
     extend: {
       colors: {
-        brand: {
-          50: '#f0fdf4',
-          100: '#dcfce7',
-          500: '#22c55e',
-          600: '#16a34a',
-          700: '#15803d',
-          800: '#166534',
-          900: '#14532d',
+        obsidian: {
+          950: '#090a0c',
+          900: '#101216',
+          850: '#16191f',
+          800: '#20242c',
+          700: '#2e333d',
+          600: '#434a57',
         },
-        rust: {
+        copper: {
+          400: '#fb923c',
           500: '#f97316',
           600: '#ea580c',
           700: '#c2410c',
         },
-        cognizant: {
-          blue: '#0033a0',
-          cyan: '#00b2e2',
-        }
+        marine: {
+          400: '#60a5fa',
+          500: '#3b82f6',
+          600: '#2563eb',
+          700: '#1d4ed8',
+        },
       },
       fontFamily: {
-        mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        mono: ['JetBrains Mono', 'SF Mono', 'Menlo', 'monospace'],
+        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
       },
-      animation: {
-        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'spin-slow': 'spin 12s linear infinite',
-      }
+      letterSpacing: {
+        tighter: '-0.04em',
+        tight: '-0.02em',
+        wide: '0.04em',
+        widest: '0.1em',
+      },
     },
   },
   plugins: [],
 }
-

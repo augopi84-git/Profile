@@ -12,111 +12,108 @@ export const HeroReel: React.FC = () => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
-  // Background animated gradient
-  const bgHue = interpolate(frame, [0, 450], [210, 260]);
-
   return (
     <AbsoluteFill
       style={{
-        background: `radial-gradient(circle at 50% 30%, hsl(${bgHue}, 40%, 12%) 0%, #060911 100%)`,
-        fontFamily: 'Inter, system-ui, sans-serif',
-        color: '#ffffff',
+        backgroundColor: '#090a0c',
+        fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+        color: '#f4f4f5',
         overflow: 'hidden',
       }}
     >
-      {/* Background Matrix Grid */}
+      {/* Subtle architectural dot grid */}
       <div
         style={{
           position: 'absolute',
           inset: 0,
-          backgroundImage:
-            'linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)',
-          backgroundSize: '40px 40px',
-          opacity: 0.6,
+          backgroundImage: 'radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px)',
+          backgroundSize: '32px 32px',
+          opacity: 0.8,
         }}
       />
 
-      {/* Top Bar Branding */}
+      {/* Clean Architectural Frame & Header */}
       <div
         style={{
           position: 'absolute',
-          top: 32,
+          top: 36,
           left: 48,
           right: 48,
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          fontSize: 16,
-          fontWeight: 600,
-          letterSpacing: 1.5,
-          color: 'rgba(255, 255, 255, 0.7)',
-          textTransform: 'uppercase',
-          borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+          fontFamily: 'JetBrains Mono, monospace',
+          fontSize: 13,
+          fontWeight: 500,
+          letterSpacing: '0.08em',
+          color: '#71717a',
+          borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
           paddingBottom: 16,
+          textTransform: 'uppercase',
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
           <span
             style={{
-              width: 10,
-              height: 10,
+              width: 8,
+              height: 8,
               borderRadius: '50%',
-              backgroundColor: '#22c55e',
-              boxShadow: '0 0 12px #22c55e',
+              backgroundColor: '#10b981',
             }}
           />
-          <span>Gopinath Chinnakaruppan • Executive Profile Reel</span>
+          <span style={{ color: '#d4d4d8' }}>Gopinath Chinnakaruppan</span>
+          <span style={{ color: '#52525b' }}>/</span>
+          <span>Cognizant Senior Manager</span>
         </div>
-        <div style={{ display: 'flex', gap: 20 }}>
-          <span style={{ color: '#f97316' }}>Rust Engine</span>
-          <span>•</span>
-          <span style={{ color: '#38bdf8' }}>Remotion Video</span>
-          <span>•</span>
-          <span style={{ color: '#a855f7' }}>Gen AI</span>
+        <div style={{ display: 'flex', gap: 16, color: '#a1a1aa' }}>
+          <span>ECM Leader</span>
+          <span style={{ color: '#3f3f46' }}>•</span>
+          <span style={{ color: '#ea580c' }}>Rust Systems</span>
+          <span style={{ color: '#3f3f46' }}>•</span>
+          <span>Gen AI</span>
         </div>
       </div>
 
-      {/* ================= SCENE 1: Identity & Executive Leadership (0 - 110) ================= */}
+      {/* ================= SCENE 1: Executive Identity (0 - 110) ================= */}
       <Sequence from={0} durationInFrames={115}>
         <SceneIdentity frame={frame} fps={fps} />
       </Sequence>
 
-      {/* ================= SCENE 2: Core Engineering & ECM Dominance (110 - 225) ================= */}
+      {/* ================= SCENE 2: OpenText Documentum & Architecture (110 - 225) ================= */}
       <Sequence from={110} durationInFrames={120}>
-        <SceneSkills frame={frame - 110} fps={fps} />
+        <SceneECM frame={frame - 110} fps={fps} />
       </Sequence>
 
-      {/* ================= SCENE 3: Global Footprint & Featured Projects (225 - 345) ================= */}
+      {/* ================= SCENE 3: Global Scale & AI Repositories (225 - 345) ================= */}
       <Sequence from={225} durationInFrames={125}>
         <SceneProjects frame={frame - 225} fps={fps} />
       </Sequence>
 
-      {/* ================= SCENE 4: Future Vision & Call to Action (345 - 450) ================= */}
+      {/* ================= SCENE 4: Synthesis & Connect (345 - 450) ================= */}
       <Sequence from={345} durationInFrames={105}>
         <SceneOutro frame={frame - 345} fps={fps} />
       </Sequence>
 
-      {/* Bottom Progress Bar */}
+      {/* Minimal hairline progress tracker */}
       <div
         style={{
           position: 'absolute',
           bottom: 0,
           left: 0,
-          height: 6,
+          height: 3,
           width: `${(frame / 450) * 100}%`,
-          background: 'linear-gradient(90deg, #38bdf8, #f97316, #a855f7)',
-          boxShadow: '0 0 16px rgba(56, 189, 248, 0.8)',
+          backgroundColor: '#ea580c',
         }}
       />
     </AbsoluteFill>
   );
 };
 
-// Sub-Scene 1: Identity
+// Scene 1: Executive Identity
 const SceneIdentity: React.FC<{ frame: number; fps: number }> = ({ frame, fps }) => {
-  const nameScale = spring({ frame, fps, config: { damping: 14, mass: 0.8 } });
-  const titleOpacity = interpolate(frame, [15, 35], [0, 1], { extrapolateRight: 'clamp' });
-  const badgeTranslateY = interpolate(frame, [25, 45], [40, 0], { extrapolateRight: 'clamp' });
+  const scale = spring({ frame, fps, config: { damping: 16, mass: 0.7 } });
+  const opacity = interpolate(frame, [10, 30], [0, 1], { extrapolateRight: 'clamp' });
+  const tagY = interpolate(frame, [15, 35], [20, 0], { extrapolateRight: 'clamp' });
 
   return (
     <AbsoluteFill
@@ -131,34 +128,32 @@ const SceneIdentity: React.FC<{ frame: number; fps: number }> = ({ frame, fps })
     >
       <div
         style={{
-          opacity: titleOpacity,
-          transform: `translateY(${badgeTranslateY}px)`,
-          padding: '6px 18px',
-          borderRadius: 24,
-          background: 'rgba(56, 189, 248, 0.15)',
-          border: '1px solid rgba(56, 189, 248, 0.4)',
-          color: '#38bdf8',
-          fontSize: 18,
-          fontWeight: 700,
-          letterSpacing: 2,
+          opacity,
+          transform: `translateY(${tagY}px)`,
+          fontFamily: 'JetBrains Mono, monospace',
+          fontSize: 12,
+          fontWeight: 600,
+          letterSpacing: '0.12em',
           textTransform: 'uppercase',
-          marginBottom: 20,
+          color: '#a1a1aa',
+          padding: '6px 14px',
+          borderRadius: 6,
+          backgroundColor: '#16191f',
+          border: '1px solid rgba(255, 255, 255, 0.08)',
+          marginBottom: 24,
         }}
       >
-        Senior Manager @ Cognizant
+        [ 01 // Executive Profile ]
       </div>
 
       <h1
         style={{
-          fontSize: 68,
-          fontWeight: 900,
-          letterSpacing: '-1.5px',
+          fontSize: 64,
+          fontWeight: 800,
+          letterSpacing: '-0.03em',
           margin: '0 0 16px 0',
-          transform: `scale(${nameScale})`,
-          background: 'linear-gradient(135deg, #ffffff 40%, #94a3b8 100%)',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          textShadow: '0 20px 40px rgba(0, 0, 0, 0.6)',
+          transform: `scale(${scale})`,
+          color: '#ffffff',
         }}
       >
         Gopinath Chinnakaruppan
@@ -166,47 +161,50 @@ const SceneIdentity: React.FC<{ frame: number; fps: number }> = ({ frame, fps })
 
       <p
         style={{
-          fontSize: 26,
-          color: '#cbd5e1',
-          maxWidth: 900,
+          fontSize: 24,
+          color: '#a1a1aa',
+          maxWidth: 820,
           lineHeight: 1.4,
-          margin: '0 0 24px 0',
-          opacity: titleOpacity,
+          margin: '0 0 32px 0',
+          opacity,
+          fontWeight: 400,
         }}
       >
-        Enterprise Content Management (ECM) Leader • Gen AI Enthusiast • Intelligent Automation
+        Enterprise Content Management (ECM) Leader • Intelligent Automation & Systems Architecture
       </p>
 
       <div
         style={{
           display: 'flex',
-          gap: 24,
-          opacity: titleOpacity,
+          gap: 16,
+          opacity,
+          fontFamily: 'JetBrains Mono, monospace',
+          fontSize: 13,
         }}
       >
-        <span style={{ background: '#1e293b', padding: '8px 20px', borderRadius: 8, border: '1px solid #334155', fontSize: 16 }}>
+        <div style={{ backgroundColor: '#101216', border: '1px solid rgba(255, 255, 255, 0.08)', padding: '10px 18px', borderRadius: 8, color: '#d4d4d8' }}>
           📍 Washington, DC, USA
-        </span>
-        <span style={{ background: 'rgba(249, 115, 22, 0.15)', border: '1px solid rgba(249, 115, 22, 0.4)', color: '#fb923c', padding: '8px 20px', borderRadius: 8, fontSize: 16, fontWeight: 600 }}>
-          ⚡ 20+ Years IT Tenure
-        </span>
-        <span style={{ background: 'rgba(168, 85, 247, 0.15)', border: '1px solid rgba(168, 85, 247, 0.4)', color: '#c084fc', padding: '8px 20px', borderRadius: 8, fontSize: 16, fontWeight: 600 }}>
-          🎓 College of Engineering Guindy
-        </span>
+        </div>
+        <div style={{ backgroundColor: '#101216', border: '1px solid rgba(255, 255, 255, 0.08)', padding: '10px 18px', borderRadius: 8, color: '#ea580c', fontWeight: 600 }}>
+          20+ Years SDLC Mastery
+        </div>
+        <div style={{ backgroundColor: '#101216', border: '1px solid rgba(255, 255, 255, 0.08)', padding: '10px 18px', borderRadius: 8, color: '#a1a1aa' }}>
+          CEG Guindy Alumnus
+        </div>
       </div>
     </AbsoluteFill>
   );
 };
 
-// Sub-Scene 2: Skills & ECM Mastery
-const SceneSkills: React.FC<{ frame: number; fps: number }> = ({ frame, fps }) => {
-  const anim = spring({ frame, fps, config: { damping: 15 } });
+// Scene 2: Enterprise Content Management & Architecture
+const SceneECM: React.FC<{ frame: number; fps: number }> = ({ frame, fps }) => {
+  const anim = spring({ frame, fps, config: { damping: 16 } });
 
-  const skills = [
-    { title: 'OpenText Documentum', desc: 'Webtop, DFC, DFS, WDK, BOF, D2, Captiva 5.3/6.5', color: '#38bdf8' },
-    { title: 'Generative AI & LLMs', desc: 'Autonomous Agents, Intelligent Document Pipelines', color: '#a855f7' },
-    { title: 'Rust & Systems Engine', desc: 'High-Throughput Backtesting & Zero-Cost Concurrency', color: '#f97316' },
-    { title: 'Release & SDLC Leadership', desc: 'Azure DevOps, TFS, Jira, Solaris, Linux, Windows', color: '#22c55e' },
+  const capabilities = [
+    { title: 'OpenText Documentum', desc: '5.x, 6.x & 7.x Suites • Webtop, DFC, DFS, WDK, BOF, D2' },
+    { title: 'Intelligent Capture & BPM', desc: 'Captiva 5.3 & 6.5 • Business Process Manager • Forms Builder' },
+    { title: 'High-Performance Rust', desc: 'Sub-millisecond Algorithmic Backtesting • Zero-Cost Concurrency' },
+    { title: 'Multi-OS & Release Governance', desc: 'Solaris, Linux & Windows Administration • Azure DevOps & Jira' },
   ];
 
   return (
@@ -219,60 +217,61 @@ const SceneSkills: React.FC<{ frame: number; fps: number }> = ({ frame, fps }) =
         padding: '0 80px',
       }}
     >
-      <div style={{ color: '#94a3b8', fontSize: 16, letterSpacing: 2, textTransform: 'uppercase', marginBottom: 8 }}>
-        Deep Enterprise Competency
+      <div style={{ fontFamily: 'JetBrains Mono, monospace', color: '#71717a', fontSize: 12, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 12 }}>
+        [ 02 // Core Enterprise Pillars ]
       </div>
-      <h2 style={{ fontSize: 46, fontWeight: 800, margin: '0 0 40px 0', textAlign: 'center' }}>
-        Content Management Mastery Meets Next-Gen AI
+      <h2 style={{ fontSize: 42, fontWeight: 800, letterSpacing: '-0.02em', margin: '0 0 36px 0', textAlign: 'center', color: '#f4f4f5' }}>
+        Two Decades Architecting Enterprise Scale
       </h2>
 
       <div
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(2, 1fr)',
-          gap: 24,
+          gap: 20,
           width: '100%',
-          maxWidth: 1000,
+          maxWidth: 960,
           transform: `scale(${anim})`,
         }}
       >
-        {skills.map((item, index) => (
+        {capabilities.map((c, i) => (
           <div
-            key={index}
+            key={i}
             style={{
-              background: 'rgba(15, 23, 42, 0.8)',
-              border: `1px solid ${item.color}40`,
-              borderRadius: 16,
-              padding: 24,
-              boxShadow: `0 8px 24px ${item.color}15`,
+              backgroundColor: '#101216',
+              border: '1px solid rgba(255, 255, 255, 0.08)',
+              borderRadius: 12,
+              padding: 22,
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 8 }}>
-              <div style={{ width: 12, height: 12, borderRadius: '50%', backgroundColor: item.color }} />
-              <h3 style={{ fontSize: 22, fontWeight: 700, margin: 0, color: item.color }}>{item.title}</h3>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8 }}>
+              <div style={{ width: 6, height: 6, borderRadius: '50%', backgroundColor: i === 2 ? '#ea580c' : '#3b82f6' }} />
+              <h3 style={{ fontSize: 18, fontWeight: 700, margin: 0, color: '#f4f4f5' }}>{c.title}</h3>
             </div>
-            <p style={{ margin: 0, color: '#cbd5e1', fontSize: 16, lineHeight: 1.4 }}>{item.desc}</p>
+            <p style={{ margin: 0, color: '#a1a1aa', fontSize: 14, lineHeight: 1.5 }}>{c.desc}</p>
           </div>
         ))}
       </div>
 
-      <div style={{ display: 'flex', gap: 32, marginTop: 36 }}>
-        <span style={{ color: '#e2e8f0', fontSize: 15 }}>🎖️ Documentum CMF (E20-120)</span>
-        <span style={{ color: '#e2e8f0', fontSize: 15 }}>☕ Sun Java SCJP 1.5</span>
-        <span style={{ color: '#e2e8f0', fontSize: 15 }}>☁️ AWS Cloud Practitioner</span>
+      <div style={{ display: 'flex', gap: 24, marginTop: 32, fontFamily: 'JetBrains Mono, monospace', fontSize: 12, color: '#71717a' }}>
+        <span>Certified: Documentum CMF (E20-120)</span>
+        <span>•</span>
+        <span>Sun Java SCJP 1.5</span>
+        <span>•</span>
+        <span>AWS Cloud Practitioner</span>
       </div>
     </AbsoluteFill>
   );
 };
 
-// Sub-Scene 3: Global Footprint & Projects
+// Scene 3: Global Scale & AI Repositories
 const SceneProjects: React.FC<{ frame: number; fps: number }> = ({ frame, fps }) => {
-  const anim = spring({ frame, fps, config: { damping: 14 } });
+  const anim = spring({ frame, fps, config: { damping: 16 } });
 
   const projects = [
-    { name: 'Mathippu-AI', desc: 'Intelligent AI model evaluation & benchmark suite', tag: 'Gen AI Platform' },
-    { name: 'claude-trading-desk', desc: 'Algorithmic trading bot with honest backtesting & execution', tag: 'FinTech / Rust' },
-    { name: 'llm-wiki-compiler', desc: 'Raw document synthesis into interlinked live knowledge graphs', tag: 'Agentic Workflow' },
+    { name: 'Mathippu-AI', desc: 'Multimodal AI model evaluation & comparative benchmark suite', tag: 'Gen AI' },
+    { name: 'claude-trading-desk', desc: 'Algorithmic trading engine with paper trading & sub-ms backtesting', tag: 'FinTech / Rust' },
+    { name: 'llm-wiki-compiler', desc: 'Raw document synthesis into interlinked live knowledge graphs', tag: 'Agentic Graph' },
   ];
 
   return (
@@ -285,28 +284,27 @@ const SceneProjects: React.FC<{ frame: number; fps: number }> = ({ frame, fps })
         padding: '0 80px',
       }}
     >
-      <div style={{ color: '#f97316', fontSize: 16, letterSpacing: 2, textTransform: 'uppercase', marginBottom: 8 }}>
-        Global Leadership & Innovations
+      <div style={{ fontFamily: 'JetBrains Mono, monospace', color: '#ea580c', fontSize: 12, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 12 }}>
+        [ 03 // Global Footprint & Codebases ]
       </div>
-      <h2 style={{ fontSize: 44, fontWeight: 800, margin: '0 0 32px 0', textAlign: 'center' }}>
-        4 Countries • Enterprise Scale • Open-Source Impact
+      <h2 style={{ fontSize: 40, fontWeight: 800, letterSpacing: '-0.02em', margin: '0 0 28px 0', textAlign: 'center', color: '#f4f4f5' }}>
+        Global Leadership • Open Source Engineering
       </h2>
 
-      {/* Countries bar */}
-      <div style={{ display: 'flex', gap: 16, marginBottom: 36 }}>
-        {['🇺🇸 United States (Washington DC)', '🇨🇦 Canada (Mississauga)', '🇦🇪 UAE', '🇮🇳 India (Chennai)'].map((c, i) => (
+      {/* Global locations */}
+      <div style={{ display: 'flex', gap: 12, marginBottom: 32, fontFamily: 'JetBrains Mono, monospace', fontSize: 12 }}>
+        {['🇺🇸 United States', '🇨🇦 Canada', '🇦🇪 UAE', '🇮🇳 India'].map((loc, i) => (
           <div
             key={i}
             style={{
-              background: 'rgba(30, 41, 59, 0.7)',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
-              borderRadius: 8,
-              padding: '8px 16px',
-              fontSize: 14,
-              fontWeight: 600,
+              backgroundColor: '#101216',
+              border: '1px solid rgba(255, 255, 255, 0.08)',
+              borderRadius: 6,
+              padding: '6px 14px',
+              color: '#d4d4d8',
             }}
           >
-            {c}
+            {loc}
           </div>
         ))}
       </div>
@@ -315,9 +313,9 @@ const SceneProjects: React.FC<{ frame: number; fps: number }> = ({ frame, fps })
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: 20,
+          gap: 16,
           width: '100%',
-          maxWidth: 1040,
+          maxWidth: 980,
           transform: `scale(${anim})`,
         }}
       >
@@ -325,17 +323,17 @@ const SceneProjects: React.FC<{ frame: number; fps: number }> = ({ frame, fps })
           <div
             key={i}
             style={{
-              background: 'rgba(15, 23, 42, 0.85)',
-              border: '1px solid rgba(56, 189, 248, 0.3)',
-              borderRadius: 14,
-              padding: 22,
+              backgroundColor: '#101216',
+              border: '1px solid rgba(255, 255, 255, 0.08)',
+              borderRadius: 12,
+              padding: 20,
             }}
           >
-            <div style={{ color: '#38bdf8', fontSize: 12, fontWeight: 700, textTransform: 'uppercase', marginBottom: 8 }}>
+            <div style={{ fontFamily: 'JetBrains Mono, monospace', color: '#a1a1aa', fontSize: 11, textTransform: 'uppercase', marginBottom: 6 }}>
               {p.tag}
             </div>
-            <div style={{ fontSize: 20, fontWeight: 700, marginBottom: 8 }}>{p.name}</div>
-            <div style={{ fontSize: 14, color: '#94a3b8', lineHeight: 1.4 }}>{p.desc}</div>
+            <div style={{ fontSize: 18, fontWeight: 700, color: '#ffffff', marginBottom: 8 }}>{p.name}</div>
+            <div style={{ fontSize: 13, color: '#71717a', lineHeight: 1.4 }}>{p.desc}</div>
           </div>
         ))}
       </div>
@@ -343,9 +341,9 @@ const SceneProjects: React.FC<{ frame: number; fps: number }> = ({ frame, fps })
   );
 };
 
-// Sub-Scene 4: Outro & Contact
+// Scene 4: Synthesis & Outro
 const SceneOutro: React.FC<{ frame: number; fps: number }> = ({ frame, fps }) => {
-  const anim = spring({ frame, fps, config: { damping: 14 } });
+  const anim = spring({ frame, fps, config: { damping: 16 } });
 
   return (
     <AbsoluteFill
@@ -358,36 +356,30 @@ const SceneOutro: React.FC<{ frame: number; fps: number }> = ({ frame, fps }) =>
         textAlign: 'center',
       }}
     >
-      <div
-        style={{
-          transform: `scale(${anim})`,
-          maxWidth: 800,
-        }}
-      >
-        <div style={{ color: '#22c55e', fontSize: 18, letterSpacing: 3, textTransform: 'uppercase', marginBottom: 12 }}>
-          Architecting The Future
+      <div style={{ transform: `scale(${anim})`, maxWidth: 740 }}>
+        <div style={{ fontFamily: 'JetBrains Mono, monospace', color: '#a1a1aa', fontSize: 12, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 16 }}>
+          [ 04 // Contact & Verification ]
         </div>
-        <h2 style={{ fontSize: 52, fontWeight: 900, margin: '0 0 20px 0', letterSpacing: '-1px' }}>
-          Let's Build Resilient Systems Together
+        <h2 style={{ fontSize: 46, fontWeight: 800, letterSpacing: '-0.03em', margin: '0 0 16px 0', color: '#ffffff' }}>
+          Engineering Deterministic, Scalable Systems
         </h2>
-        <p style={{ fontSize: 22, color: '#94a3b8', margin: '0 0 36px 0', lineHeight: 1.5 }}>
-          Enterprise Architecture • Intelligent Document Automation • Generative AI Systems
+        <p style={{ fontSize: 18, color: '#a1a1aa', margin: '0 0 32px 0', lineHeight: 1.5, fontWeight: 400 }}>
+          Enterprise Architecture • Intelligent Document Automation • Generative AI & Systems
         </p>
 
-        <div style={{ display: 'flex', justifyContent: 'center', gap: 24, fontSize: 18 }}>
-          <div style={{ background: '#0284c7', color: '#ffffff', padding: '12px 28px', borderRadius: 10, fontWeight: 600 }}>
+        <div style={{ display: 'flex', justifyContent: 'center', gap: 16, fontFamily: 'JetBrains Mono, monospace', fontSize: 14 }}>
+          <div style={{ backgroundColor: '#2563eb', color: '#ffffff', padding: '12px 24px', borderRadius: 8, fontWeight: 600 }}>
             linkedin.com/in/gopinathchinnakaruppan
           </div>
-          <div style={{ background: '#1e293b', border: '1px solid #475569', color: '#ffffff', padding: '12px 28px', borderRadius: 10, fontWeight: 600 }}>
+          <div style={{ backgroundColor: '#101216', border: '1px solid rgba(255, 255, 255, 0.12)', color: '#d4d4d8', padding: '12px 24px', borderRadius: 8 }}>
             github.com/augopi84-git
           </div>
         </div>
 
-        <div style={{ marginTop: 28, fontSize: 15, color: '#64748b' }}>
-          📧 augopi84@gmail.com • 📍 Washington, DC
+        <div style={{ marginTop: 28, fontSize: 13, color: '#52525b', fontFamily: 'JetBrains Mono, monospace' }}>
+          Washington, DC • augopi84@gmail.com
         </div>
       </div>
     </AbsoluteFill>
   );
 };
-

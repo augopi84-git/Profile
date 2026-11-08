@@ -39,45 +39,39 @@ export const RemotionPlayerContainer: React.FC = () => {
     }
   };
 
-  const handleSpeedChange = (speed: number) => {
-    setPlaybackRate(speed);
-    // Remotion player playback rate
-  };
-
   const totalFrames = 450;
   const fps = 30;
   const currentTimeSec = (currentFrame / fps).toFixed(1);
   const totalDurationSec = (totalFrames / fps).toFixed(0);
 
   const chapters = [
-    { title: '1. Executive Identity', frame: 0 },
-    { title: '2. ECM & Documentum', frame: 110 },
-    { title: '3. Global Projects & AI', frame: 225 },
-    { title: '4. Future Vision', frame: 345 },
+    { title: '01. Executive Identity', frame: 0 },
+    { title: '02. ECM Architecture', frame: 110 },
+    { title: '03. Global Repositories', frame: 225 },
+    { title: '04. Synthesis & Connect', frame: 345 },
   ];
 
   return (
-    <div className="w-full rounded-2xl overflow-hidden glass-panel-glow border border-blue-500/30 p-2 sm:p-4 shadow-2xl relative group">
+    <div className="w-full rounded-xl overflow-hidden bg-[#101216] border border-white/[0.08] p-3 sm:p-4 shadow-xl">
       {/* Top Header Bar */}
-      <div className="flex flex-wrap items-center justify-between gap-3 px-3 py-2 border-b border-slate-800 text-xs text-slate-300">
+      <div className="flex flex-wrap items-center justify-between gap-3 px-2 py-2 border-b border-white/[0.06] text-xs font-mono text-zinc-400">
         <div className="flex items-center gap-2">
-          <span className="w-2.5 h-2.5 rounded-full bg-rust-500 animate-ping" />
-          <span className="font-mono font-bold tracking-wider text-slate-200 uppercase">
+          <span className="w-2 h-2 rounded-full bg-copper-500" />
+          <span className="font-semibold text-zinc-200 uppercase tracking-wider">
             Remotion Programmatic Video Reel (1280x720 @ 30 FPS)
           </span>
         </div>
-        <div className="flex items-center gap-2">
-          <button
-            onClick={() => setShowRenderModal(true)}
-            className="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-blue-400 border border-blue-500/30 font-mono transition-colors flex items-center gap-1.5"
-          >
-            <span>📹 CLI Render Script</span>
-          </button>
-        </div>
+        <button
+          onClick={() => setShowRenderModal(true)}
+          className="px-2.5 py-1 rounded bg-[#16191f] hover:bg-[#20242c] text-zinc-300 border border-white/[0.08] transition-colors flex items-center gap-1.5"
+        >
+          <span>CLI Render Script</span>
+          <span className="text-zinc-600">→</span>
+        </button>
       </div>
 
-      {/* Main Video Viewport with Remotion Player */}
-      <div className="relative w-full aspect-video bg-slate-950 rounded-xl overflow-hidden my-3 border border-slate-800/80 shadow-inner">
+      {/* Main Video Viewport */}
+      <div className="relative w-full aspect-video bg-black rounded-lg overflow-hidden my-3 border border-white/[0.06]">
         <Player
           ref={playerRef}
           component={HeroReel}
@@ -106,14 +100,14 @@ export const RemotionPlayerContainer: React.FC = () => {
             <button
               key={ch.title}
               onClick={() => jumpToChapter(ch.frame)}
-              className={`px-3 py-2 rounded-lg text-xs font-medium transition-all text-left flex items-center justify-between ${
+              className={`px-3 py-2 rounded text-xs font-mono transition-all text-left flex items-center justify-between ${
                 isActive
-                  ? 'bg-blue-600/30 border border-blue-400 text-white font-bold shadow-md shadow-blue-500/10'
-                  : 'bg-slate-900/60 hover:bg-slate-800/80 text-slate-400 border border-slate-800'
+                  ? 'bg-[#1e222b] border border-white/[0.18] text-white font-semibold'
+                  : 'bg-[#121418] hover:bg-[#181a20] text-zinc-400 border border-white/[0.04]'
               }`}
             >
               <span>{ch.title}</span>
-              <span className="font-mono text-[10px] text-slate-500">
+              <span className="text-[10px] text-zinc-600">
                 {Math.floor(ch.frame / fps)}s
               </span>
             </button>
@@ -122,44 +116,44 @@ export const RemotionPlayerContainer: React.FC = () => {
       </div>
 
       {/* Controls Bar */}
-      <div className="flex flex-wrap items-center justify-between gap-3 px-2 py-1 bg-slate-900/90 rounded-lg border border-slate-800">
+      <div className="flex flex-wrap items-center justify-between gap-3 px-3 py-2 bg-[#121418] rounded-md border border-white/[0.06]">
         <div className="flex items-center gap-3">
           <button
             onClick={togglePlay}
-            className="w-9 h-9 rounded-lg bg-blue-600 hover:bg-blue-500 text-white flex items-center justify-center font-bold shadow transition-transform active:scale-95"
+            className="w-8 h-8 rounded bg-[#1e222b] hover:bg-[#282d38] border border-white/[0.1] text-zinc-200 flex items-center justify-center font-bold transition-all active:scale-95"
             aria-label={isPlaying ? 'Pause Reel' : 'Play Reel'}
           >
             {isPlaying ? (
-              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+              <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
                 <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
               </svg>
             ) : (
-              <svg className="w-4 h-4 fill-current ml-0.5" viewBox="0 0 24 24">
+              <svg className="w-3.5 h-3.5 fill-current ml-0.5" viewBox="0 0 24 24">
                 <path d="M8 5v14l11-7z"/>
               </svg>
             )}
           </button>
 
-          <div className="font-mono text-xs text-slate-300">
-            <span className="text-blue-400 font-bold">{currentTimeSec}s</span>
-            <span className="text-slate-500"> / {totalDurationSec}s</span>
-            <span className="hidden sm:inline text-slate-500 ml-2">
+          <div className="font-mono text-xs text-zinc-300">
+            <span className="text-zinc-100 font-bold">{currentTimeSec}s</span>
+            <span className="text-zinc-600"> / {totalDurationSec}s</span>
+            <span className="hidden sm:inline text-zinc-600 ml-2">
               (Frame {currentFrame}/{totalFrames})
             </span>
           </div>
         </div>
 
         {/* Speed Controls */}
-        <div className="flex items-center gap-1.5 text-xs">
-          <span className="text-slate-500 text-[11px] mr-1">Speed:</span>
+        <div className="flex items-center gap-1 text-xs font-mono">
+          <span className="text-zinc-600 mr-1">Rate:</span>
           {[1, 1.5, 2].map((s) => (
             <button
               key={s}
-              onClick={() => handleSpeedChange(s)}
-              className={`px-2 py-1 rounded text-xs font-mono transition-colors ${
+              onClick={() => setPlaybackRate(s)}
+              className={`px-2 py-0.5 rounded text-xs transition-colors ${
                 playbackRate === s
-                  ? 'bg-blue-600 text-white font-bold'
-                  : 'bg-slate-800 text-slate-400 hover:text-white'
+                  ? 'bg-[#282d38] text-white font-bold border border-white/[0.1]'
+                  : 'text-zinc-500 hover:text-zinc-300'
               }`}
             >
               {s}x
@@ -168,33 +162,35 @@ export const RemotionPlayerContainer: React.FC = () => {
         </div>
       </div>
 
-      {/* Render MP4 Modal */}
+      {/* Render MP4 Info Modal */}
       {showRenderModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-          <div className="max-w-lg w-full bg-slate-900 border border-slate-700 rounded-2xl p-6 shadow-2xl relative">
+          <div className="max-w-lg w-full bg-[#101216] border border-white/[0.12] rounded-xl p-6 shadow-2xl relative">
             <button
               onClick={() => setShowRenderModal(false)}
-              className="absolute top-4 right-4 text-slate-400 hover:text-white"
+              className="absolute top-4 right-4 text-zinc-400 hover:text-white font-mono"
             >
               ✕
             </button>
             <div className="flex items-center gap-2 mb-3">
-              <span className="text-xl">🎬</span>
-              <h3 className="text-lg font-bold text-white">Render MP4 via Remotion CLI</h3>
+              <span className="w-2.5 h-2.5 rounded-full bg-copper-500" />
+              <h3 className="text-base font-bold text-white font-mono uppercase tracking-wide">
+                Remotion CLI Video Compiler
+              </h3>
             </div>
-            <p className="text-sm text-slate-300 mb-4">
-              Remotion allows you to compile this video reel into a high-definition MP4 or WebM video file programmatically:
+            <p className="text-xs text-zinc-400 mb-4 leading-relaxed">
+              Remotion executes a headless browser instance to capture and render each React component frame with exact pixel fidelity:
             </p>
-            <div className="bg-slate-950 p-3 rounded-lg border border-slate-800 font-mono text-xs text-emerald-400 overflow-x-auto mb-4">
+            <div className="bg-[#090a0c] p-3 rounded border border-white/[0.08] font-mono text-xs text-emerald-400 mb-4 overflow-x-auto">
               npm run render:video
             </div>
-            <p className="text-xs text-slate-400 mb-4">
-              This executes Chrome headless via Puppeteer to capture and encode each frame with exact pixel fidelity.
-            </p>
+            <div className="text-[11px] text-zinc-500 font-mono mb-4">
+              Output: out/gopinath-profile-reel.mp4 (1280x720 H.264)
+            </div>
             <div className="flex justify-end">
               <button
                 onClick={() => setShowRenderModal(false)}
-                className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-sm font-semibold transition-colors"
+                className="px-4 py-1.5 bg-[#16191f] hover:bg-[#20242c] text-zinc-200 border border-white/[0.1] rounded text-xs font-mono transition-colors"
               >
                 Close
               </button>
@@ -205,4 +201,3 @@ export const RemotionPlayerContainer: React.FC = () => {
     </div>
   );
 };
-

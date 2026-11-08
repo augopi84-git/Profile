@@ -28,7 +28,7 @@ export const ExperienceTimeline: React.FC = () => {
       flag: '🇺🇸',
       description:
         'Leading executive enterprise content management transformations, intelligent automation, and Gen AI adoption for critical government, healthcare, and financial services accounts in the US capital region.',
-      skills: ['ECM Architecture', 'Gen AI Strategy', 'Program Governance', 'Executive Client Consulting'],
+      skills: ['ECM Architecture', 'Gen AI Strategy', 'Program Governance', 'Client Consulting'],
     },
     {
       id: 'sm-ca',
@@ -144,78 +144,72 @@ export const ExperienceTimeline: React.FC = () => {
   const countries = ['All', 'USA', 'Canada', 'UAE', 'India'];
 
   return (
-    <section id="experience" className="py-20 border-t border-slate-800/80 relative">
+    <section id="experience" className="py-20 border-t border-white/[0.08] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-rust-950/60 border border-rust-500/30 text-rust-500 text-xs font-mono font-semibold uppercase tracking-wider mb-3">
+            <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-[#16191f] border border-white/[0.08] text-zinc-400 text-xs font-mono uppercase tracking-wider mb-3">
               Career Trajectory • 20+ Years
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
               Two Decades of Continuous Leadership at Cognizant
             </h2>
-            <p className="text-slate-400 text-sm sm:text-base mt-2">
-              From Programmer Analyst in 2006 to Senior Manager in Washington DC, managing planetary-scale ECM solutions.
+            <p className="text-zinc-400 text-sm mt-2 font-light">
+              Progression from Programmer Analyst in 2006 to Senior Manager in Washington DC.
             </p>
           </div>
 
-          {/* Geography Filters */}
-          <div className="flex flex-wrap gap-2">
+          {/* Region Filters */}
+          <div className="flex flex-wrap gap-1.5 font-mono text-xs">
             {countries.map((c) => (
               <button
                 key={c}
                 onClick={() => setSelectedCountry(c)}
-                className={`px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all ${
+                className={`px-3 py-1.5 rounded transition-colors ${
                   selectedCountry === c
-                    ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20 font-bold'
-                    : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'
+                    ? 'bg-[#20242c] text-white font-semibold border border-white/[0.15]'
+                    : 'bg-[#101216] text-zinc-500 hover:text-zinc-300 border border-white/[0.04]'
                 }`}
               >
-                {c === 'All' ? '🌍 All Regions' : `${c}`}
+                {c === 'All' ? 'All Regions' : c}
               </button>
             ))}
           </div>
         </div>
 
-        {/* Timeline Line & Cards */}
-        <div className="relative border-l border-slate-800 ml-4 sm:ml-8 pl-6 sm:pl-10 space-y-10">
+        {/* Timeline Items */}
+        <div className="relative border-l border-white/[0.08] ml-3 sm:ml-6 pl-6 sm:pl-8 space-y-8">
           {filtered.map((item) => (
-            <div key={item.id} className="relative group">
-              {/* Timeline Dot */}
-              <div className="absolute -left-[31px] sm:-left-[47px] top-1.5 w-4 h-4 rounded-full bg-slate-900 border-2 border-blue-500 group-hover:bg-blue-500 group-hover:scale-125 transition-all shadow-md shadow-blue-500/20" />
+            <div key={item.id} className="relative">
+              {/* Minimalist dot */}
+              <div className="absolute -left-[31px] sm:-left-[39px] top-2 w-3 h-3 rounded-full bg-[#16191f] border border-white/[0.2]" />
 
-              <div className="glass-panel p-6 rounded-2xl border border-slate-800/90 hover:border-blue-500/40 transition-all">
-                <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
+              <div className="surface-card p-6 rounded-xl">
+                <div className="flex flex-wrap items-baseline justify-between gap-2 mb-2">
                   <div>
-                    <span className="text-xl mr-2">{item.flag}</span>
-                    <h3 className="text-xl font-bold text-white inline-block">{item.role}</h3>
-                    <div className="text-sm font-semibold text-blue-400 mt-0.5">
-                      {item.company}
-                    </div>
+                    <span className="mr-2 text-base">{item.flag}</span>
+                    <h3 className="text-lg font-bold text-white inline-block">{item.role}</h3>
+                    <span className="text-zinc-500 font-mono text-xs ml-2">/ {item.company}</span>
                   </div>
-                  <div className="text-right">
-                    <span className="inline-block px-3 py-1 rounded-full bg-slate-800 text-slate-300 font-mono text-xs font-semibold">
-                      {item.period}
-                    </span>
-                    <div className="text-[11px] text-slate-500 font-mono mt-1">
-                      {item.duration}
-                    </div>
+                  <div className="text-right font-mono text-xs text-zinc-400">
+                    <span>{item.period}</span>
+                    <span className="text-zinc-600 ml-2">({item.duration})</span>
                   </div>
                 </div>
 
-                <div className="text-xs font-mono text-slate-400 mb-3 flex items-center gap-1.5">
-                  <span>📍 {item.location}</span>
+                <div className="text-xs font-mono text-zinc-500 mb-3">
+                  📍 {item.location}
                 </div>
 
-                <p className="text-sm text-slate-300 leading-relaxed font-light mb-4">
+                <p className="text-sm text-zinc-300 leading-relaxed font-light mb-4">
                   {item.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5 font-mono text-xs">
                   {item.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="px-2.5 py-1 rounded-md bg-slate-900/90 border border-slate-800 text-xs font-mono text-slate-300"
+                      className="px-2 py-0.5 rounded bg-[#16191f] border border-white/[0.06] text-zinc-400"
                     >
                       {skill}
                     </span>
@@ -229,4 +223,3 @@ export const ExperienceTimeline: React.FC = () => {
     </section>
   );
 };
-

@@ -15,7 +15,6 @@ export const RustEngineLab: React.FC = () => {
   const runLiveBenchmark = () => {
     setIsRunning(true);
     setTimeout(() => {
-      // High-throughput simulation mirror
       const t0 = performance.now();
       const ticks = 50000;
       let price = 100.0;
@@ -80,138 +79,127 @@ export const RustEngineLab: React.FC = () => {
         particleMicros,
       });
       setIsRunning(false);
-    }, 250);
+    }, 200);
   };
 
   return (
-    <section id="rust-lab" className="py-20 border-t border-slate-800/80 relative">
+    <section id="rust-lab" className="py-20 border-t border-white/[0.08] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-rust-950/60 border border-rust-500/30 text-rust-500 text-xs font-mono font-semibold uppercase tracking-wider mb-3">
-            High-Performance Systems & Rust
+        <div className="max-w-3xl mb-12">
+          <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-[#16191f] border border-white/[0.08] text-copper-400 text-xs font-mono uppercase tracking-wider mb-3">
+            Systems Engineering & Rust
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Rust Profile Engine & Algorithmic Lab
+            Rust Profile Engine & Performance Lab
           </h2>
-          <p className="text-slate-400 text-sm sm:text-base mt-2">
-            The profile is backed by an ultra-fast native Rust crate (<code className="text-rust-400">crates/profile-engine</code>)
-            handling sub-millisecond backtesting simulations and data pipeline validation.
+          <p className="text-zinc-400 text-sm mt-2 font-light">
+            Backed by a native Rust crate (<code className="font-mono text-zinc-300">crates/profile-engine</code>)
+            for schema validation and sub-millisecond execution benchmarks.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-          {/* Left: Engine Architecture & CLI output */}
-          <div className="glass-panel p-6 sm:p-7 rounded-2xl border border-slate-800 space-y-5">
-            <div className="flex items-center justify-between border-b border-slate-800 pb-4">
-              <div className="flex items-center gap-2.5">
-                <span className="text-2xl">🦀</span>
-                <div>
-                  <h3 className="text-base font-bold text-white">profile-engine v0.1.0</h3>
-                  <div className="text-xs text-slate-400 font-mono">Rust 1.91.0 • Zero-Cost Abstractions</div>
-                </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+          {/* Left: Native Architecture & Terminal Output */}
+          <div className="surface-card p-6 rounded-xl space-y-4">
+            <div className="flex items-center justify-between border-b border-white/[0.06] pb-3 font-mono">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-copper-500" />
+                <h3 className="text-sm font-bold text-white">profile-engine v0.1.0</h3>
               </div>
-              <span className="px-2.5 py-1 rounded bg-rust-500/10 border border-rust-500/30 text-rust-400 font-mono text-xs">
-                Native Engine
+              <span className="text-[11px] text-zinc-500">
+                Rust 1.91.0
               </span>
             </div>
 
-            <div className="space-y-3 text-sm text-slate-300 font-light leading-relaxed">
+            <div className="space-y-3 text-xs sm:text-sm text-zinc-300 font-light leading-relaxed">
               <p>
-                To complement high-level enterprise ECM orchestration, Gopinath utilizes <strong className="text-white">Rust</strong> for
-                deterministic, zero-garbage-collection systems engineering.
+                Gopinath leverages <strong className="text-white font-medium">Rust</strong> for high-concurrency 
+                computations where deterministic latency and zero garbage collection are required.
               </p>
-              <ul className="list-disc list-inside space-y-1.5 text-slate-400 text-xs font-mono">
-                <li><strong className="text-slate-200">Schema Validation:</strong> Checks profile integrity at build-time.</li>
-                <li><strong className="text-slate-200">Algorithmic Backtesting:</strong> Processes 50,000 financial ticks in ~3 milliseconds.</li>
-                <li><strong className="text-slate-200">Vector Dynamics:</strong> Performs 7.4M particle calculations in 280ms.</li>
-                <li><strong className="text-slate-200">Asset Compilation:</strong> Exports static metadata consumed by Remotion.</li>
+              <ul className="list-disc list-inside space-y-1 text-zinc-400 text-xs font-mono">
+                <li><strong className="text-zinc-200">Data Validation:</strong> Verifies schema integrity at build time.</li>
+                <li><strong className="text-zinc-200">Algorithmic Backtesting:</strong> Simulates 50,000 market ticks in ~1 millisecond.</li>
+                <li><strong className="text-zinc-200">Vector Dynamics:</strong> Evaluates 7.4M particle calculations in 260ms.</li>
+                <li><strong className="text-zinc-200">Asset Compilation:</strong> Exports static metrics consumed by the web UI.</li>
               </ul>
             </div>
 
             {/* Terminal snippet */}
-            <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 font-mono text-xs text-slate-300 space-y-1">
-              <div className="text-slate-500"># Run the native Rust engine locally:</div>
-              <div className="text-emerald-400 font-semibold">
+            <div className="bg-[#090a0c] p-3.5 rounded border border-white/[0.08] font-mono text-xs text-zinc-300 space-y-1">
+              <div className="text-zinc-600"># Native Rust execution:</div>
+              <div className="text-zinc-200">
                 $ cargo run --manifest-path crates/profile-engine/Cargo.toml -- all
               </div>
-              <div className="text-slate-400 text-[11px] pt-1">
-                ✅ Schema integrity check passed: 100% compliant.<br />
-                📊 Total Industry Tenure: 20 Years (Cognizant)<br />
-                🚀 Processed 50,000 ticks in 3,030 µs (16.5M ticks/sec)
+              <div className="text-zinc-500 text-[11px] pt-1">
+                Schema check: 100% compliant<br />
+                Processed: 50,000 ticks in 892 µs (56.05M ticks/sec)
               </div>
             </div>
           </div>
 
-          {/* Right: Live Interactive Simulation Playground */}
-          <div className="glass-panel p-6 sm:p-7 rounded-2xl border border-rust-500/20 shadow-xl space-y-5">
-            <div className="flex items-center justify-between border-b border-slate-800 pb-4">
+          {/* Right: In-Browser Live Simulation */}
+          <div className="surface-card p-6 rounded-xl space-y-4">
+            <div className="flex items-center justify-between border-b border-white/[0.06] pb-3">
               <div>
-                <h3 className="text-base font-bold text-white">Live In-Browser Simulation</h3>
-                <div className="text-xs text-slate-400">Trigger high-frequency execution in your browser</div>
+                <h3 className="text-sm font-bold text-white font-mono uppercase tracking-wide">
+                  Live Client-Side Benchmark
+                </h3>
+                <div className="text-xs text-zinc-500">Run algorithmic calculation in your browser thread</div>
               </div>
               <button
                 onClick={runLiveBenchmark}
                 disabled={isRunning}
-                className="px-4 py-2 bg-gradient-to-r from-rust-600 to-amber-600 hover:from-rust-500 hover:to-amber-500 text-white font-bold text-xs rounded-xl shadow-lg shadow-rust-600/20 transition-all active:scale-95 disabled:opacity-50 flex items-center gap-2"
+                className="px-3.5 py-1.5 bg-[#16191f] hover:bg-[#20242c] text-zinc-200 border border-white/[0.1] hover:border-white/[0.2] font-mono text-xs rounded transition-all active:scale-95 disabled:opacity-50"
               >
-                {isRunning ? (
-                  <>
-                    <span className="w-3 h-3 rounded-full border-2 border-white border-t-transparent animate-spin" />
-                    <span>Computing...</span>
-                  </>
-                ) : (
-                  <>
-                    <span>⚡ Run Live Simulation</span>
-                  </>
-                )}
+                {isRunning ? 'Calculating...' : 'Run Benchmark'}
               </button>
             </div>
 
             {/* Results Grid */}
             <div className="grid grid-cols-2 gap-3 font-mono">
-              <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800">
-                <div className="text-[11px] text-slate-500 mb-1">Trading Backtest</div>
-                <div className="text-lg font-bold text-emerald-400">
+              <div className="p-3 rounded bg-[#0d0f12] border border-white/[0.04]">
+                <div className="text-[11px] text-zinc-500 mb-0.5">Trading Backtest</div>
+                <div className="text-base font-bold text-zinc-100">
                   {liveResults ? `${liveResults.ticksProcessed.toLocaleString()} Ticks` : '50,000 Ticks'}
                 </div>
-                <div className="text-xs text-slate-400 mt-0.5">
-                  {liveResults ? `Executed in ${liveResults.micros} µs` : 'Benchmark Ready'}
+                <div className="text-[11px] text-zinc-400 mt-0.5">
+                  {liveResults ? `${liveResults.micros} µs` : 'Ready'}
                 </div>
               </div>
 
-              <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800">
-                <div className="text-[11px] text-slate-500 mb-1">Simulated Trades</div>
-                <div className="text-lg font-bold text-blue-400">
+              <div className="p-3 rounded bg-[#0d0f12] border border-white/[0.04]">
+                <div className="text-[11px] text-zinc-500 mb-0.5">Simulated Trades</div>
+                <div className="text-base font-bold text-zinc-100">
                   {liveResults ? `${liveResults.trades} trades` : '1,904 trades'}
                 </div>
-                <div className="text-xs text-slate-400 mt-0.5">
-                  {liveResults ? `Win Rate: ${liveResults.winRate}%` : 'EMA Crossover'}
+                <div className="text-[11px] text-zinc-400 mt-0.5">
+                  {liveResults ? `Win Rate: ${liveResults.winRate}%` : 'EMA Cross'}
                 </div>
               </div>
 
-              <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800">
-                <div className="text-[11px] text-slate-500 mb-1">Vector N-Body Calcs</div>
-                <div className="text-lg font-bold text-purple-400">
+              <div className="p-3 rounded bg-[#0d0f12] border border-white/[0.04]">
+                <div className="text-[11px] text-zinc-500 mb-0.5">N-Body Vector Calcs</div>
+                <div className="text-base font-bold text-zinc-100">
                   {liveResults ? `${liveResults.particleCalcs.toLocaleString()}` : '1,345,500 Calcs'}
                 </div>
-                <div className="text-xs text-slate-400 mt-0.5">
+                <div className="text-[11px] text-zinc-400 mt-0.5">
                   {liveResults ? `${liveResults.particles} particles (${liveResults.particleMicros} µs)` : '300 particles'}
                 </div>
               </div>
 
-              <div className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800">
-                <div className="text-[11px] text-slate-500 mb-1">Native Rust Speed</div>
-                <div className="text-lg font-bold text-rust-400">
-                  16.5M ticks/sec
+              <div className="p-3 rounded bg-[#0d0f12] border border-white/[0.04]">
+                <div className="text-[11px] text-zinc-500 mb-0.5">Native Rust Throughput</div>
+                <div className="text-base font-bold text-copper-400">
+                  56.0M ticks/sec
                 </div>
-                <div className="text-xs text-slate-400 mt-0.5">
-                  Sub-millisecond latency
+                <div className="text-[11px] text-zinc-400 mt-0.5">
+                  Sub-millisecond execution
                 </div>
               </div>
             </div>
 
-            <div className="p-3 bg-slate-950/80 rounded-xl border border-slate-800 text-[11px] text-slate-400 leading-normal">
-              💡 <strong>Architecture Note:</strong> The Rust engine executes natively in CI/CD via GitHub Actions to validate all portfolio feeds before deploying statically to GitHub Pages.
+            <div className="p-3 bg-[#0d0f12] rounded border border-white/[0.04] text-[11px] text-zinc-500 font-mono">
+              The Rust engine compiles and executes in GitHub Actions prior to each production static deployment to GitHub Pages.
             </div>
           </div>
         </div>
@@ -219,4 +207,3 @@ export const RustEngineLab: React.FC = () => {
     </section>
   );
 };
-
