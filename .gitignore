@@ -1,0 +1,20 @@
+# Node / Web dependencies & build
+node_modules/
+dist/
+build/
+.cache/
+*.log
+
+# Remotion render output
+out/
+renders/
+
+# Rust build artifacts
+target/
+Cargo.lock
+
+# OS & Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

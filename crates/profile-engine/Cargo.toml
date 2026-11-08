@@ -1,0 +1,8 @@
+[package]
+name = "profile-engine"
+version = "0.1.0"
+edition = "2021"
+authors = ["Gopinath Chinnakaruppan <augopi84@gmail.com>"]
+description = "High-performance profile compiler, validator, and algorithmic simulation engine for Gopinath Chinnakaruppan's portfolio."
+
+[dependencies]

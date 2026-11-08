@@ -1,0 +1,200 @@
+{
+  "name": "Gopinath Chinnakaruppan",
+  "preferredName": "Gopinath",
+  "handle": "augopi84-git",
+  "title": "Senior Manager & Enterprise Content Management Leader | Gen AI Enthusiast",
+  "subtitle": "Intelligent Automation & Digital Transformation Architect",
+  "tagline": "20+ years leading enterprise digital transformations, content management architectures, and next-generation AI automation.",
+  "location": "Washington, District of Columbia, United States",
+  "email": "augopi84@gmail.com",
+  "phone": "+12026778086",
+  "links": {
+    "linkedin": "https://www.linkedin.com/in/gopinathchinnakaruppan/",
+    "github": "https://github.com/augopi84-git",
+    "portfolio": "https://augopi84-git.github.io",
+    "cause": "https://www.earthhour.org/sign-up"
+  },
+  "summary": "Gopinath has 20+ years of distinguished experience in Information Technology. He is an Enterprise Content Management (ECM) leader and OpenText Documentum expert with deep cross-domain expertise across Healthcare, Insurance (Property & Casualty), Government, and Banking & Financial Services. He orchestrates end-to-end SDLC phases—from requirement analysis and enterprise architecture to robust administration, release management, and Gen AI-driven intelligent automation.",
+  "metrics": {
+    "yearsOfExperience": "20+",
+    "globalOffices": "4 Countries (US, Canada, UAE, India)",
+    "certificationsCount": 3,
+    "enterpriseDomains": ["Healthcare", "Gov", "BFSI", "Insurance P&C"]
+  },
+  "certifications": [
+    {
+      "name": "Documentum CMF (EMC E20-120)",
+      "issuer": "EMC / OpenText",
+      "badge": "Certified ECM Specialist"
+    },
+    {
+      "name": "Sun Certified Java Programmer (SCJP 1.5)",
+      "issuer": "Sun Microsystems",
+      "badge": "Core Java Expert"
+    },
+    {
+      "name": "AWS Cloud Practitioner",
+      "issuer": "Amazon Web Services",
+      "badge": "Cloud Architecture"
+    }
+  ],
+  "topSkills": [
+    "Enterprise Content Management (ECM)",
+    "OpenText Documentum Suite (5.x, 6.x, 7.x)",
+    "Gen AI & Intelligent Automation",
+    "Release & Change Management (Azure DevOps, Jira, TFS)",
+    "Systems Architecture (Solaris, Linux, Windows)",
+    "High-Performance Rust & WebAssembly",
+    "Sun Java / J2EE Systems",
+    "Programmatic Media & Video (Remotion)"
+  ],
+  "skillCategories": [
+    {
+      "category": "ECM & OpenText Documentum",
+      "items": [
+        "Documentum Content Server",
+        "Documentum Foundation Classes (DFC)",
+        "Documentum Foundation Services (DFS)",
+        "Web Development Kit (WDK)",
+        "Documentum Webtop",
+        "Business Object Framework (BOF)",
+        "Documentum Administrator",
+        "Documentum D2",
+        "Captiva 5.3 / 6.5",
+        "Business Process Manager (BPM)",
+        "Forms Builder"
+      ]
+    },
+    {
+      "category": "Gen AI & Emerging Tech",
+      "items": [
+        "Generative AI & LLM Systems",
+        "Autonomous AI Workflows",
+        "Intelligent Document Processing (IDP)",
+        "Rust & Systems Engineering",
+        "Remotion Programmatic Video",
+        "WebAssembly"
+      ]
+    },
+    {
+      "category": "Architecture & Engineering",
+      "items": [
+        "Sun Java / J2EE",
+        "Multi-OS Administration (Solaris, Linux, Windows)",
+        "Enterprise Integration Services",
+        "Database Design & SQL",
+        "REST & Web Services",
+        "High-Availability Clustering"
+      ]
+    },
+    {
+      "category": "DevOps, Governance & Delivery",
+      "items": [
+        "Release Management",
+        "Change Management",
+        "Azure DevOps",
+        "Jira",
+        "Team Foundation Server (TFS)",
+        "SDLC Leadership",
+        "Cross-Functional Team Mentorship"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "role": "Senior Manager",
+      "company": "Cognizant",
+      "location": "Washington, District of Columbia, United States",
+      "period": "August 2025 - Present",
+      "description": "Leading enterprise digital transformation, Gen AI initiatives, and high-stakes content management programs for premier US government and enterprise clients."
+    },
+    {
+      "role": "Senior Manager",
+      "company": "Cognizant",
+      "location": "Mississauga, Ontario, Canada",
+      "period": "December 2021 - August 2025",
+      "description": "Managed multi-million dollar ECM modernization portfolios, cross-border engineering teams, and enterprise automation strategies across Canada and North America."
+    },
+    {
+      "role": "Manager",
+      "company": "Cognizant",
+      "location": "Mississauga, Ontario, Canada",
+      "period": "June 2021 - December 2021",
+      "description": "Orchestrated complex enterprise content platform deliveries, client advisory, and agile release management frameworks."
+    },
+    {
+      "role": "Manager",
+      "company": "Cognizant",
+      "location": "Washington DC - Baltimore Area, USA",
+      "period": "September 2015 - June 2021",
+      "description": "Spearheaded enterprise ECM solutions, Documentum infrastructure modernization, and critical system migrations across healthcare, insurance, and federal sectors."
+    },
+    {
+      "role": "Manager",
+      "company": "Cognizant",
+      "location": "Greater Chennai Area, India",
+      "period": "July 2015 - September 2015",
+      "description": "Led offshore development units, requirement analysis, and delivery governance."
+    },
+    {
+      "role": "Technology Specialist",
+      "company": "Cognizant",
+      "location": "Greater Chennai Area, India",
+      "period": "January 2012 - July 2015",
+      "description": "Architected custom Documentum solutions using WDK, DFC, DFS, and BOF; streamlined high-volume ingestion and workflow automation."
+    },
+    {
+      "role": "Technology Specialist",
+      "company": "Cognizant",
+      "location": "UAE",
+      "period": "November 2011 - December 2011",
+      "description": "Consulted on Middle East enterprise content architectures and on-premise Documentum server administration."
+    },
+    {
+      "role": "Associate",
+      "company": "Cognizant",
+      "location": "Chennai, India",
+      "period": "October 2009 - November 2011",
+      "description": "Core development, server administration on Solaris and Linux, and custom BOF module design."
+    },
+    {
+      "role": "Programmer Analyst",
+      "company": "Cognizant",
+      "location": "Chennai, India",
+      "period": "July 2006 - October 2009",
+      "description": "Documentum application development, bug triage, production support, and Java web development."
+    }
+  ],
+  "education": [
+    {
+      "degree": "Bachelor of Engineering (BE), Mechanical Engineering",
+      "institution": "College of Engineering Guindy (CEG), Chennai",
+      "period": "2002 - 2006",
+      "details": "Premier century-old institution under Anna University. Foundation in engineering mathematics, systems analysis, and computational mechanics."
+    }
+  ],
+  "languages": [
+    { "name": "English", "proficiency": "Professional Working" },
+    { "name": "Tamil", "proficiency": "Native / Bilingual" }
+  ],
+  "openSourceAndGenAI": [
+    {
+      "name": "Mathippu-AI",
+      "url": "https://github.com/augopi84-git/Mathippu-AI",
+      "description": "Next-gen AI evaluation and benchmarking platform exploring intelligent scoring and quality metrics.",
+      "tech": ["Gen AI", "JavaScript / TypeScript", "Evaluation Frameworks"]
+    },
+    {
+      "name": "claude-trading-desk",
+      "url": "https://github.com/augopi84-git/claude-trading-desk",
+      "description": "Algorithmic trading bot and backtesting suite with Claude Code integration, paper trading, and low-latency self-hosted execution.",
+      "tech": ["Trading Bots", "FinTech", "Rust / Python", "LLM Integration"]
+    },
+    {
+      "name": "llm-wiki-compiler",
+      "url": "https://github.com/augopi84-git/llm-wiki-compiler",
+      "description": "Knowledge compiler inspired by Karpathy's LLM Wiki pattern: turns raw source documents into an interlinked living wiki graph.",
+      "tech": ["Knowledge Graph", "Agentic Pipelines", "LLM Compilers"]
+    }
+  ]
+}
