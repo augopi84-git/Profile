@@ -147,3 +147,26 @@ pub fn run_particle_simulation(particles: usize, steps: usize) -> ParticleMatrix
         calculations_per_millisecond,
     }
 }
+
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_trading_simulation_execution() {
+        let report = run_trading_simulation(10_000);
+        assert_eq!(report.total_ticks_processed, 10_000);
+        assert!(report.simulated_trades > 0);
+        assert!(report.execution_time_micros > 0);
+        assert!(report.throughput_ticks_per_sec > 100_000.0);
+    }
+
+    #[test]
+    fn test_particle_simulation_execution() {
+        let report = run_particle_simulation(50, 5);
+        assert_eq!(report.particle_count, 50);
+        assert_eq!(report.total_vector_calculations, 50 * 49 * 5);
+        assert!(report.execution_time_micros > 0);
+    }
+}
