@@ -9,8 +9,8 @@
     "build": "npm run build:engine && vite build",
     "build:engine": "cargo run --manifest-path crates/profile-engine/Cargo.toml -- all",
     "preview": "vite preview",
-    "render:video": "remotion render src/remotion/Root.tsx HeroReel out/gopinath-profile-reel.mp4",
-    "preview:video": "remotion preview src/remotion/Root.tsx"
+    "render:video": "npx remotion render src/remotion/index.ts HeroReel out/gopinath-profile-reel.mp4",
+    "preview:video": "npx remotion preview src/remotion/index.ts"
   },
   "dependencies": {
     "@remotion/player": "^4.0.218",
@@ -20,6 +20,7 @@
     "remotion": "^4.0.218"
   },
   "devDependencies": {
+    "@remotion/cli": "^4.0.541",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.4",
@@ -30,3 +31,4 @@
     "vite": "^5.4.11"
   }
 }
+

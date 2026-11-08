@@ -116,3 +116,4 @@ export const EducationCertifications: React.FC = () => {
     </section>
   );
 };
+

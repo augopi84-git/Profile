@@ -17,15 +17,15 @@
   "rustBenchmarks": {
     "tradingBacktest": {
       "ticks": 25000,
-      "executionTimeMicros": 436,
-      "throughputTicksPerSec": 57224607,
+      "executionTimeMicros": 422,
+      "throughputTicksPerSec": 59224163,
       "winRate": 27.69
     },
     "particleCalculations": {
       "particles": 300,
       "totalCalculations": 1794000,
-      "executionTimeMicros": 61379,
-      "throughputMCalcsPerSec": 29.23
+      "executionTimeMicros": 63551,
+      "throughputMCalcsPerSec": 28.23
     }
   }
 }

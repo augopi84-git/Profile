@@ -390,3 +390,4 @@ const SceneOutro: React.FC<{ frame: number; fps: number }> = ({ frame, fps }) =>
     </AbsoluteFill>
   );
 };
+

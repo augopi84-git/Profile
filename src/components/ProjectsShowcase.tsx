@@ -150,3 +150,4 @@ export const ProjectsShowcase: React.FC = () => {
     </section>
   );
 };
+
