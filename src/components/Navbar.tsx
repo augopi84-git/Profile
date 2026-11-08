@@ -17,7 +17,6 @@ export const Navbar: React.FC = () => {
     { name: 'Experience', href: '#experience' },
     { name: 'Skills & ECM', href: '#skills' },
     { name: 'Projects', href: '#projects' },
-    { name: 'Rust Engine', href: '#rust-lab' },
     { name: 'Education', href: '#education' },
   ];
 

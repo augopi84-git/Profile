@@ -28,7 +28,7 @@ export const About: React.FC = () => {
               <p>
                 Expanding from foundational enterprise architectures to modern horizons, Gopinath actively builds in{' '}
                 <span className="text-zinc-100 font-medium">Generative AI systems</span>, intelligent document pipelines,{' '}
-                <span className="text-copper-400 font-medium">high-performance Rust engineering</span>, and programmatic
+                <span className="text-zinc-100 font-medium">cloud automation</span>, and programmatic
                 motion graphics using Remotion.
               </p>
             </div>

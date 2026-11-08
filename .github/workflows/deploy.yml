@@ -19,18 +19,11 @@ concurrency:
 
 jobs:
   build:
-    name: Build Rust Engine & React/Remotion Site
+    name: Build React & Remotion Site
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-
-      - name: Setup Rust Toolchain
-        uses: dtolnay/rust-toolchain@stable
-
-      - name: Run Rust Profile Engine (Validation, Simulation & Metrics Export)
-        run: |
-          cargo run --manifest-path crates/profile-engine/Cargo.toml -- all
 
       - name: Setup Node.js
         uses: actions/setup-node@v4

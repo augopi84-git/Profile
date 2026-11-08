@@ -24,13 +24,13 @@ export const SkillsMatrix: React.FC = () => {
     {
       name: 'Gen AI & Emerging Systems',
       badge: 'Modern Frontiers',
-      description: 'Engineering intelligent document automation, LLM evaluation pipelines, and high-performance Rust backtesting systems.',
+      description: 'Engineering intelligent document automation, LLM evaluation pipelines, and modern web systems.',
       skills: [
         { name: 'Gen AI & Autonomous Pipelines', level: 'Advanced', desc: 'Autonomous reasoning workflows, evaluation benchmarking (Mathippu-AI)' },
-        { name: 'High-Performance Rust', level: 'Proficient', desc: 'Memory-safe systems programming, algorithmic trading engines, sub-millisecond backtesting' },
+        { name: 'Intelligent Document Processing (IDP)', level: 'Expert', desc: 'AI-driven content extraction, classification, OCR workflows, and automated routing' },
         { name: 'LLM Knowledge Compiling', level: 'Advanced', desc: 'Unstructured source synthesis into living wiki graphs (llm-wiki-compiler)' },
         { name: 'Remotion Video Engineering', level: 'Advanced', desc: 'Programmatic video generation in React, dynamic video reels, automated rendering' },
-        { name: 'WebAssembly (Wasm)', level: 'Proficient', desc: 'Compiling high-speed logic to execute with native speeds inside web applications' },
+        { name: 'Cloud Architecture & APIs', level: 'Advanced', desc: 'Microservices, REST & SOAP endpoints, scalable container deployments' },
         { name: 'TypeScript & React', level: 'Advanced', desc: 'Modern reactive web applications, component architecture, responsive layouts' },
       ],
     },

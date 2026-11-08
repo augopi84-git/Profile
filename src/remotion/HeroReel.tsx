@@ -68,7 +68,7 @@ export const HeroReel: React.FC = () => {
         <div style={{ display: 'flex', gap: 16, color: '#a1a1aa' }}>
           <span>ECM Leader</span>
           <span style={{ color: '#3f3f46' }}>•</span>
-          <span style={{ color: '#ea580c' }}>Rust Systems</span>
+          <span style={{ color: '#3b82f6' }}>Intelligent Automation</span>
           <span style={{ color: '#3f3f46' }}>•</span>
           <span>Gen AI</span>
         </div>
@@ -203,7 +203,7 @@ const SceneECM: React.FC<{ frame: number; fps: number }> = ({ frame, fps }) => {
   const capabilities = [
     { title: 'OpenText Documentum', desc: '5.x, 6.x & 7.x Suites • Webtop, DFC, DFS, WDK, BOF, D2' },
     { title: 'Intelligent Capture & BPM', desc: 'Captiva 5.3 & 6.5 • Business Process Manager • Forms Builder' },
-    { title: 'High-Performance Rust', desc: 'Sub-millisecond Algorithmic Backtesting • Zero-Cost Concurrency' },
+    { title: 'Gen AI & Automation', desc: 'Intelligent Document Processing (IDP) • LLM Workflows • Cloud AI' },
     { title: 'Multi-OS & Release Governance', desc: 'Solaris, Linux & Windows Administration • Azure DevOps & Jira' },
   ];
 

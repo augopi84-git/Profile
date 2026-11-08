@@ -17,7 +17,7 @@ export const Footer: React.FC = () => {
             <div>
               <div className="text-sm font-bold text-zinc-200">Gopinath Chinnakaruppan</div>
               <div className="text-[11px] text-zinc-500">
-                Senior Manager, Cognizant • ECM Leader • Gen AI & Rust Systems
+                Senior Manager, Cognizant • ECM Leader • Gen AI & Intelligent Automation
               </div>
             </div>
           </div>
@@ -61,14 +61,12 @@ export const Footer: React.FC = () => {
 
         <div className="pt-6 border-t border-white/[0.04] flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-zinc-600">
           <div>
-            © {new Date().getFullYear()} Gopinath Chinnakaruppan. Built with Remotion & Rust. Hosted on GitHub Pages.
+            © {new Date().getFullYear()} Gopinath Chinnakaruppan. Built with Remotion & React. Hosted on GitHub Pages.
           </div>
           <div className="flex items-center gap-3">
-            <span>Remotion Video</span>
+            <span>Remotion Video Engine</span>
             <span>•</span>
-            <span>Rust Profile Engine</span>
-            <span>•</span>
-            <span>React & Tailwind</span>
+            <span>React & Tailwind CSS</span>
           </div>
         </div>
       </div>

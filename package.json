@@ -6,8 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm run build:engine && vite build",
-    "build:engine": "cargo run --manifest-path crates/profile-engine/Cargo.toml -- all",
+    "build": "vite build",
     "preview": "vite preview",
     "render:video": "npx remotion render src/remotion/index.ts HeroReel out/gopinath-profile-reel.mp4",
     "preview:video": "npx remotion preview src/remotion/index.ts"

@@ -7,7 +7,6 @@ export const RemotionPlayerContainer: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(true);
   const [currentFrame, setCurrentFrame] = useState(0);
   const [playbackRate, setPlaybackRate] = useState(1);
-  const [showRenderModal, setShowRenderModal] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -53,25 +52,8 @@ export const RemotionPlayerContainer: React.FC = () => {
 
   return (
     <div className="w-full rounded-xl overflow-hidden bg-[#101216] border border-white/[0.08] p-3 sm:p-4 shadow-xl">
-      {/* Top Header Bar */}
-      <div className="flex flex-wrap items-center justify-between gap-3 px-2 py-2 border-b border-white/[0.06] text-xs font-mono text-zinc-400">
-        <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-copper-500" />
-          <span className="font-semibold text-zinc-200 uppercase tracking-wider">
-            Remotion Programmatic Video Reel (1280x720 @ 30 FPS)
-          </span>
-        </div>
-        <button
-          onClick={() => setShowRenderModal(true)}
-          className="px-2.5 py-1 rounded bg-[#16191f] hover:bg-[#20242c] text-zinc-300 border border-white/[0.08] transition-colors flex items-center gap-1.5"
-        >
-          <span>CLI Render Script</span>
-          <span className="text-zinc-600">→</span>
-        </button>
-      </div>
-
       {/* Main Video Viewport */}
-      <div className="relative w-full aspect-video bg-black rounded-lg overflow-hidden my-3 border border-white/[0.06]">
+      <div className="relative w-full aspect-video bg-black rounded-lg overflow-hidden mb-3 border border-white/[0.06]">
         <Player
           ref={playerRef}
           component={HeroReel}
@@ -161,43 +143,6 @@ export const RemotionPlayerContainer: React.FC = () => {
           ))}
         </div>
       </div>
-
-      {/* Render MP4 Info Modal */}
-      {showRenderModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-          <div className="max-w-lg w-full bg-[#101216] border border-white/[0.12] rounded-xl p-6 shadow-2xl relative">
-            <button
-              onClick={() => setShowRenderModal(false)}
-              className="absolute top-4 right-4 text-zinc-400 hover:text-white font-mono"
-            >
-              ✕
-            </button>
-            <div className="flex items-center gap-2 mb-3">
-              <span className="w-2.5 h-2.5 rounded-full bg-copper-500" />
-              <h3 className="text-base font-bold text-white font-mono uppercase tracking-wide">
-                Remotion CLI Video Compiler
-              </h3>
-            </div>
-            <p className="text-xs text-zinc-400 mb-4 leading-relaxed">
-              Remotion executes a headless browser instance to capture and render each React component frame with exact pixel fidelity:
-            </p>
-            <div className="bg-[#090a0c] p-3 rounded border border-white/[0.08] font-mono text-xs text-emerald-400 mb-4 overflow-x-auto">
-              npm run render:video
-            </div>
-            <div className="text-[11px] text-zinc-500 font-mono mb-4">
-              Output: out/gopinath-profile-reel.mp4 (1280x720 H.264)
-            </div>
-            <div className="flex justify-end">
-              <button
-                onClick={() => setShowRenderModal(false)}
-                className="px-4 py-1.5 bg-[#16191f] hover:bg-[#20242c] text-zinc-200 border border-white/[0.1] rounded text-xs font-mono transition-colors"
-              >
-                Close
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
